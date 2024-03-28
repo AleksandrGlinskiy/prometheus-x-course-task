@@ -3,8 +3,7 @@ import { useCart } from "../../hooks/useCart";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import Navigation from "../nav/Navigation";
-import css from "./Cart.module.css"
-
+import css from "./Cart.module.css";
 
 const Cart = () => {
   const { cartItems, setCartItems } = useCart();
@@ -20,8 +19,6 @@ const Cart = () => {
     setCartItems([]);
     localStorage.removeItem("cartCount");
   };
-
-  console.log(cartItems);
 
   return (
     <>

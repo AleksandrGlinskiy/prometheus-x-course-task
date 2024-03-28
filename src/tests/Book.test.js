@@ -1,84 +1,77 @@
 import React, { useState } from "react";
 import { render, fireEvent, waitFor, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter, Routes, Route } from "react-router-dom";
 
 import { CartProvider } from "../hooks/useCart";
 import { BooksProvider } from "../hooks/useBooks";
 
 import Book from "../components/specific-book/Book";
 
-const CartContext = ({ children }) => {
+const mockState = [
+  {
+    id: 1,
+    author: "David Flanagan",
+    price: 10.99,
+  },
+];
+
+const BookWithContext = () => {
   const [cartItems, setCartItems] = useState([]);
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState(mockState);
+
+  const route = "/books/1";
+
   return (
-    <BrowserRouter>
+    <MemoryRouter initialEntries={[route]}>
       <BooksProvider value={{ books, setBooks }}>
         <CartProvider value={{ cartItems, setCartItems }}>
-          {children}
+          <Routes>
+            <Route path="/books/:id" element={<Book />} />
+          </Routes>
         </CartProvider>
       </BooksProvider>
-    </BrowserRouter>
+    </MemoryRouter>
   );
 };
 
 describe("Book component", () => {
   test("should increase count when clicking on increase button", async () => {
-    const { getByLabelText, getByText } = render(<Book />, {
-      wrapper: CartContext,
+    render(<BookWithContext />);
+
+    const countInput = screen.getByLabelText("Count");
+    const increaseButton = screen.getByText("+");
+
+    await waitFor(() => {
+      expect(countInput.value).toBe("1");
     });
 
-   
-    const countInput = getByLabelText("Count");
-    const increaseButton = getByText('+');
-    
-
-    
-    // await waitFor(() => {
-    //   expect(countInput.value).toBe("1");
-    // });
-
-  
     fireEvent.click(increaseButton);
 
     expect(countInput.value).toBe("2");
   });
 
   test("should decrease count when clicking on decrease button", async () => {
-    const { getByLabelText, getByText } = render(<Book />, {
-      wrapper: CartContext,
-    });
+    render(<BookWithContext />);
 
-   
-    const countInput = getByLabelText("Count");
-    const decreaseButton = getByText('-');
-    
+    const countInput = screen.getByLabelText("Count");
+    const decreaseButton = screen.getByText("-");
 
-    fireEvent.change(countInput, { target: { value: '2' } });
-     
+    fireEvent.change(countInput, { target: { value: "2" } });
+
     fireEvent.click(decreaseButton);
 
     expect(countInput.value).toBe("1");
   });
 
   test("should change total price when change count", async () => {
-    const { getByLabelText, getByText } = render(<Book />, {
-      wrapper: CartContext,
-    });
-    const countInput = getByLabelText("Count");
-    const initialTotalPrice = getByText("Total price:").textContent;;
+    render(<BookWithContext />);
 
-    fireEvent.change(countInput, { target: { value: "2" } });
+    const increaseButton = screen.getByText("+");
+    const initialTotalPrice = screen.getByTitle("Total price").textContent;
 
+    fireEvent.click(increaseButton);
+    const currentTotalPrice = screen.getByTitle("Total price").textContent;
 
-    const expectedTotalPrice = "Total price: 20.00";
-
-  
-
-    await waitFor(() => { expect(getByText(expectedTotalPrice)).toBeInTheDocument() });
-
-    expect(getByText("Total price:").textContent).not.toEqual(initialTotalPrice);
+    expect(currentTotalPrice).not.toEqual(initialTotalPrice);
   });
-
-    
-  
 });

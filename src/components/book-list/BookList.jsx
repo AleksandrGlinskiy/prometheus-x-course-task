@@ -8,25 +8,10 @@ import Navigation from "../nav/Navigation";
 import css from "./BookList.module.css";
 
 const BookList = () => {
-  const { books, setBooks } = useBooks();
+  const { books } = useBooks();
 
   const [filterText, setFilterText] = useState("");
   const [filterPrice, setFilterPrice] = useState("All");
-
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response = await fetch("./books.json");
-        const data = await response.json();
-        setBooks(data.books);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching books:", error);
-      }
-    };
-
-    fetchBooks();
-  }, []);
 
   const filteredBooksByTitle = (book) => {
     return book.title.toLowerCase().includes(filterText.toLowerCase());

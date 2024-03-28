@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useBooks } from "../../hooks/useBooks";
 import { useCart } from "../../hooks/useCart";
 import Footer from "../footer/Footer";
@@ -8,19 +8,18 @@ import Navigation from "../nav/Navigation";
 import css from "./Book.module.css";
 
 const Book = () => {
-  console.log("hello", { cartContext: useCart(), bookContext: useBooks() });
   const { setCartItems } = useCart();
   const { books } = useBooks();
-  console.log(setCartItems);
+  const { id = "" } = useParams();
 
-  const { id } = useParams();
-  console.log(id);
+  const location = useLocation();
+  console.log("location", location);
 
   const [count, setCount] = useState(1);
   const [cartCount, setCartCount] = useState(0);
 
   const book = useMemo(
-    () => books.find((item) => item.id.toString() === id.toString()) || {},
+    () => books.find((item) => item.id.toString() === id) || {},
     [books, id]
   );
   useEffect(() => {
@@ -29,6 +28,8 @@ const Book = () => {
       setCartCount(parseInt(savedCartCount));
     }
   }, []);
+
+  console.log("book", { id, books, book });
 
   const {
     author,
@@ -82,8 +83,6 @@ const Book = () => {
     setCartCount(cartCount + 1);
     localStorage.setItem("cartCount", (cartCount + 1).toString());
   };
-
-
 
   return (
     <>
@@ -157,7 +156,7 @@ const Book = () => {
                   </button>
                 </div>
               </form>
-              <p className={css.quantity__chapters}>
+              <p className={css.quantity__chapters} title="Total price">
                 Total price: {getTotalPrice()}
               </p>
               <button

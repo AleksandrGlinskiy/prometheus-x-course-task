@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import BookList from "./components/book-list/BookList";
@@ -12,6 +12,21 @@ import { BooksProvider } from "./hooks/useBooks";
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
   const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch("/books.json");
+        const data = await response.json();
+        console.log(data);
+        setBooks(data.books);
+      } catch (error) {
+        console.error("Error fetching books:", error);
+      }
+    };
+
+    fetchBooks();
+  }, []);
 
   return (
     <>
@@ -37,6 +52,6 @@ const App = () => {
       </BooksProvider>
     </>
   );
-}
+};
 
 export default App;
