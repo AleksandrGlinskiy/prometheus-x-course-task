@@ -1,0 +1,42 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  border: 1px solid purple;
+}
+
+.prototype {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.button {
+  margin-top: 8px;
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(242, 232, 232);
+}
+
+@media screen and (max-width: 320px) {
+  .form {
+    width: 100%;
+    margin: auto 8px;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+}

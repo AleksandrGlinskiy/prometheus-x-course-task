@@ -1,0 +1,81 @@
+html,
+body,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+
+  border: 1px solid purple;
+}
+.button {
+  cursor: pointer;
+  display: block;
+  height: 35px;
+  width: 80px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(242, 232, 232);
+}
+.books__gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.book{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between ;
+  width: 30%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  
+}
+
+.book__image{
+  width: 100%;
+  height: auto;
+}
+
+.book__price{
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.book__info{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.book__button{
+  cursor: pointer;
+  display: block;
+  width: 70px;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: rgb(242, 232, 232);
+}

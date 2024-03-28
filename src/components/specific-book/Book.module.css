@@ -1,0 +1,129 @@
+html,
+body,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  border: 1px solid purple;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: flex-end;
+}
+
+.info-item {
+  margin: 0 40px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+.image {
+  width: 33.3%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield; 
+    
+}
+
+.book__image {
+  width: 100%;
+  height: auto;
+}
+
+.button__step{
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  width: 30px;
+  border: 2px solid blue;
+  border-radius: 15px;
+  background-color: rgb(151, 175, 213);
+ 
+}
+
+.button__field{
+  position: absolute;
+  left: 205px;
+  top: -17px;
+}
+
+.button__add {
+  cursor: pointer;
+  display: block;
+  height: 35px;
+  width: 80px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(242, 232, 232);
+  margin-bottom: 20px;
+}
+.description {
+  width: 33.3%;
+  padding: 15px;
+}
+
+.quantity {
+  border: 2px dashed black;
+  width: 33.3%;
+  height: 250px;
+  padding: 15px;
+}
+
+.name__title {
+  font-size: 21px;
+  padding: 5px;
+}
+
+.name__characters {
+  font-size: 19;
+  font-style: italic;
+  padding: 5px;
+}
+
+.name__chapters,
+.quantity__chapters {
+  font-size: 22px;
+  font-weight: 700;
+  font-style: normal;
+}
+.quantity__chapters {
+  margin-bottom: 15px;
+  display: flex;
+  position: relative;
+}
+
+.cart__count {
+  margin-top: 20px;
+}
