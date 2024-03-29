@@ -33,18 +33,33 @@ const App = () => {
       <BooksProvider value={{ books, setBooks }}>
         <CartProvider value={{ cartItems, setCartItems }}>
           <Routes basename={process.env.PUBLIC_URL}>
-            <Route path="/" element={<Signin />} />
+            <Route path="prometheus-x-course-task/" element={<Signin />} />
             <Route
-              path="/books"
-              element={<PrivateRoute element={<BookList />} path="/books" />}
+              path="prometheus-x-course-task/books"
+              element={
+                <PrivateRoute
+                  element={<BookList />}
+                  path="prometheus-x-course-task/books"
+                />
+              }
             />
             <Route
-              path="/books/:id"
-              element={<PrivateRoute element={<Book />} path="/books/:id" />}
+              path="prometheus-x-course-task/books/:id"
+              element={
+                <PrivateRoute
+                  element={<Book />}
+                  path="prometheus-x-course-task/books/:id"
+                />
+              }
             />
             <Route
-              path="/cart"
-              element={<PrivateRoute element={<Cart />} path="/cart" />}
+              path="prometheus-x-course-task/cart"
+              element={
+                <PrivateRoute
+                  element={<Cart />}
+                  path="prometheus-x-course-task/cart"
+                />
+              }
             />
             <Route path="*" element={<ErrorNotFound />} />
           </Routes>
