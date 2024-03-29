@@ -79,7 +79,7 @@ input[type=number] {
   top: -17px;
 }
 
-.button__add {
+.button__add{
   cursor: pointer;
   display: block;
   height: 35px;
