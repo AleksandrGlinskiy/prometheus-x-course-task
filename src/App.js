@@ -16,9 +16,9 @@ const App = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch("./books.json");
+        const response = await fetch("prometheus-x-course-task/books.json");
         const data = await response.json();
-        console.log(data);
+
         setBooks(data.books);
       } catch (error) {
         console.error("Error fetching books:", error);
@@ -32,7 +32,7 @@ const App = () => {
     <>
       <BooksProvider value={{ books, setBooks }}>
         <CartProvider value={{ cartItems, setCartItems }}>
-          <Routes>
+          <Routes basename={process.env.PUBLIC_URL}>
             <Route path="/" element={<Signin />} />
             <Route
               path="/books"
