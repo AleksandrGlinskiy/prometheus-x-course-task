@@ -44,8 +44,6 @@ Create React App (tool for creation React applications)
 
 Webpack (module bundler)
 
-Jest (unit-tests)
-
 GH-Pages (deploy)
 
 
