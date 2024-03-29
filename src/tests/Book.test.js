@@ -56,6 +56,7 @@ describe("Book component", () => {
     const countInput = screen.getByLabelText("Count");
     const decreaseButton = screen.getByText("-");
 
+    
     fireEvent.change(countInput, { target: { value: "2" } });
 
     fireEvent.click(decreaseButton);

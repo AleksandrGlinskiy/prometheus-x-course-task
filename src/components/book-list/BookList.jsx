@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { Link } from "react-router-dom";
 import { useBooks } from "../../hooks/useBooks";
@@ -12,6 +12,8 @@ const BookList = () => {
 
   const [filterText, setFilterText] = useState("");
   const [filterPrice, setFilterPrice] = useState("All");
+
+ 
 
   const filteredBooksByTitle = (book) => {
     return book.title.toLowerCase().includes(filterText.toLowerCase());
