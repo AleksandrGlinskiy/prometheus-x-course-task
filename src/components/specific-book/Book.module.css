@@ -67,7 +67,7 @@ input[type=number] {
   display: block;
   height: 30px;
   width: 30px;
-  border: 2px solid blue;
+  border: 1px solid blue;
   border-radius: 15px;
   background-color: rgb(151, 175, 213);
  
@@ -75,7 +75,7 @@ input[type=number] {
 
 .button__field{
   position: absolute;
-  left: 205px;
+  left: 210px;
   top: -17px;
 }
 

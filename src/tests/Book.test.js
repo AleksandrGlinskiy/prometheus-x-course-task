@@ -66,12 +66,14 @@ describe("Book component", () => {
   test("should change total price when change count", async () => {
     render(<BookWithContext />);
 
+    
     const increaseButton = screen.getByText("+");
     const initialTotalPrice = screen.getByTitle("Total price").textContent;
 
     fireEvent.click(increaseButton);
     const currentTotalPrice = screen.getByTitle("Total price").textContent;
 
+    
     expect(currentTotalPrice).not.toEqual(initialTotalPrice);
   });
 });
