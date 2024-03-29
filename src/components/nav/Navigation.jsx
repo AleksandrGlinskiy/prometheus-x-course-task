@@ -8,7 +8,7 @@ const Navigation = () => {
   };
   return (
     <nav className={css.info}>
-      <Link to="/cart">
+      <Link to="/prometheus-x-course-task/cart">
         <img
           className={css.info__item}
           src="https://cdn-icons-png.flaticon.com/512/3081/3081822.png"
@@ -17,8 +17,12 @@ const Navigation = () => {
         />
       </Link>
       <div className={css.info__item}>
-        <Link to="/">
-          <button className={css.button} type="button" onClick={handleClickSignOut}>
+        <Link to="/prometheus-x-course-task/">
+          <button
+            className={css.button}
+            type="button"
+            onClick={handleClickSignOut}
+          >
             Sign-Out
           </button>
         </Link>

@@ -16,7 +16,7 @@ const Signin = () => {
     e.preventDefault();
     if (value.length >= 4 && value.length <= 16) {
       localStorage.setItem("username", value);
-      navigate("/books", { replace: true });
+      navigate("/prometheus-x-course-task/books", { replace: true });
     }
   };
   return (

@@ -48,7 +48,10 @@ const Cart = () => {
                 {cartItems.map((item) => (
                   <tr key={item.id}>
                     <td>
-                      <Link className={css.link} to={`/books/${item.id}`}>
+                      <Link
+                        className={css.link}
+                        to={`/prometheus-x-course-task/books/${item.id}`}
+                      >
                         {item.title}
                       </Link>
                     </td>
