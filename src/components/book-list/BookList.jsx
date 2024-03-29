@@ -38,12 +38,12 @@ const BookList = () => {
 
   const handleChangeByText = (e) => {
     setFilterText(e.target.value.trim());
-    console.log(filterText);
+  
   };
 
   const handleChangeByPrice = (e) => {
     setFilterPrice(e.target.value);
-    console.log(filterPrice);
+    
   };
 
   return (

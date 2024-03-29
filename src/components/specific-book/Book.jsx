@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useBooks } from "../../hooks/useBooks";
 import { useCart } from "../../hooks/useCart";
 import Footer from "../footer/Footer";
@@ -11,13 +11,9 @@ const Book = () => {
   const { setCartItems } = useCart();
   const { books } = useBooks();
   const { id = "" } = useParams();
-
-  const location = useLocation();
-  console.log("location", location);
-
   const [count, setCount] = useState(1);
   const [cartCount, setCartCount] = useState(0);
-
+  
   const book = useMemo(
     () => books.find((item) => item.id.toString() === id) || {},
     [books, id]
@@ -28,8 +24,6 @@ const Book = () => {
       setCartCount(parseInt(savedCartCount));
     }
   }, []);
-
-  console.log("book", { id, books, book });
 
   const {
     author,
