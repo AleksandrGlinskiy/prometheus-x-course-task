@@ -19,14 +19,14 @@ const BookWithContext = () => {
   const [cartItems, setCartItems] = useState([]);
   const [books, setBooks] = useState(mockState);
 
-  const route = "/books/1";
+  const route = "/prometheus-x-course-task/books/1";
 
   return (
     <MemoryRouter initialEntries={[route]}>
       <BooksProvider value={{ books, setBooks }}>
         <CartProvider value={{ cartItems, setCartItems }}>
           <Routes>
-            <Route path="/books/:id" element={<Book />} />
+            <Route path="/prometheus-x-course-task/books/:id" element={<Book />} />
           </Routes>
         </CartProvider>
       </BooksProvider>
