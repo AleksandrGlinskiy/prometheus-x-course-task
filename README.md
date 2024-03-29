@@ -1,23 +1,41 @@
-# Getting Started with Create React App
+# JS BAND STORE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application is online book shop.
 
-## Available Scripts
+https://aleksandrglinskiy.github.io/prometheus-x-course-task/
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+JS Band store have four screens: "Signin", “Catalog of the books”, “Book details”, and "Cart"
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+"Signin"
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+On this screen user can log in with username than system redirects user to the Book catalog.
 
-### `npm test`
+"Catalog of the books"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+On this screen user can see the list of books, search by book name and filter list by the price(dropdown options: 0 < price < 15, 15 < price < 30, price > 30). If user clicking on View button system navigate user to the specific "Book details" screen;
+
+“Book details”
+
+On this screen user can choose the needed count of books, sees the total price, and adds the book to the "Cart". Then User can navigate back to the "Catalog of the books" or go forward to the "Cart".
+
+"Cart"
+
+On this screen user can see order list and press 'Purchase' button to clear the cart. 
+
+
+### `Installation and run application`
+
+
+Clone the reprository: 
+
+npm install
+
+npm run start
+
+npm run test (testing app)
+
 
 ### `npm run build`
 
@@ -39,32 +57,9 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
+#
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
