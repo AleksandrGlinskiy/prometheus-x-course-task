@@ -26,7 +26,10 @@ const BookWithContext = () => {
       <BooksProvider value={{ books, setBooks }}>
         <CartProvider value={{ cartItems, setCartItems }}>
           <Routes>
-            <Route path="/prometheus-x-course-task/books/:id" element={<Book />} />
+            <Route
+              path="/prometheus-x-course-task/books/:id"
+              element={<Book />}
+            />
           </Routes>
         </CartProvider>
       </BooksProvider>
@@ -56,7 +59,6 @@ describe("Book component", () => {
     const countInput = screen.getByLabelText("Count");
     const decreaseButton = screen.getByText("-");
 
-    
     fireEvent.change(countInput, { target: { value: "2" } });
 
     fireEvent.click(decreaseButton);
@@ -67,14 +69,12 @@ describe("Book component", () => {
   test("should change total price when change count", async () => {
     render(<BookWithContext />);
 
-    
     const increaseButton = screen.getByText("+");
     const initialTotalPrice = screen.getByTitle("Total price").textContent;
 
     fireEvent.click(increaseButton);
     const currentTotalPrice = screen.getByTitle("Total price").textContent;
 
-    
     expect(currentTotalPrice).not.toEqual(initialTotalPrice);
   });
 });

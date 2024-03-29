@@ -8,6 +8,6 @@ export const PrivateRoute = ({ element, path }) => {
   return isUserAuthenticated() ? (
     element
   ) : (
-    <Navigate to="/" state={{ from: path }} />
+    <Navigate to="/prometheus-x-course-task/" state={{ from: path }} />
   );
 };
